@@ -3,6 +3,13 @@
   "Statement": [
     {
       "Effect": "Allow",
+      "Resource": ["*"],
+      "Action": [
+        "codeconnections:GetConnectionToken"
+      ]
+    },
+    {
+      "Effect": "Allow",
       "Resource": "arn:${data_aws_partition_current_partition}:logs:${data_aws_region_current_name}:${data_aws_caller_identity_current_account_id}:log-group:/aws/codebuild/aft*",
       "Action": [
         "logs:CreateLogStream",

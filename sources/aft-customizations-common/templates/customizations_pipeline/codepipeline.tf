@@ -146,7 +146,7 @@ resource "aws_codepipeline" "aft_codeconnections_customizations_codepipeline" {
         ConnectionArn        = data.aws_ssm_parameter.codeconnections_connection_arn.value
         FullRepositoryId     = data.aws_ssm_parameter.aft_global_customizations_repo_name.value
         BranchName           = data.aws_ssm_parameter.aft_global_customizations_repo_branch.value
-        DetectChanges        = false
+        DetectChanges        = true
         OutputArtifactFormat = "CODE_ZIP"
       }
     }
@@ -163,7 +163,7 @@ resource "aws_codepipeline" "aft_codeconnections_customizations_codepipeline" {
         ConnectionArn        = data.aws_ssm_parameter.codeconnections_connection_arn.value
         FullRepositoryId     = data.aws_ssm_parameter.aft_account_customizations_repo_name.value
         BranchName           = data.aws_ssm_parameter.aft_account_customizations_repo_branch.value
-        DetectChanges        = false
+        DetectChanges        = true
         OutputArtifactFormat = "CODE_ZIP"
       }
     }

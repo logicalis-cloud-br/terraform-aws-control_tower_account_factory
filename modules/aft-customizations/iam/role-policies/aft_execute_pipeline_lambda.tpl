@@ -2,6 +2,13 @@
     "Version": "2012-10-17",
     "Statement": [
         {
+          "Effect": "Allow",
+          "Resource": ["*"],
+          "Action": [
+            "codeconnections:GetConnectionToken"
+          ]
+        },
+        {
             "Effect": "Allow",
             "Action": [
                 "codepipeline:StartPipelineExecution",
