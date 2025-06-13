@@ -59,7 +59,11 @@ phases:
       # Mark helper scripts as executable
       - chmod +x $DEFAULT_PATH/api_helpers/pre-api-helpers.sh
       - chmod +x $DEFAULT_PATH/api_helpers/post-api-helpers.sh
-      
+      - GITHUB_CREDS=$(aws secretsmanager get-secret-value --secret-id /aft/config/github/tf-modules-pat --query SecretString --output text)
+      - GITHUB_USER=$(echo $GITHUB_CREDS | jq -r .username)
+      - GITHUB_PAT=$(echo $GITHUB_CREDS | jq -r .pat)
+      - git config --global url."https://${GITHUB_USER}:${GITHUB_PAT}@github.com".insteadOf "https://github.com"
+
   pre_build:
     on-failure: ABORT
     commands:

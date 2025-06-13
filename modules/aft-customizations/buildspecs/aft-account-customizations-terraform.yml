@@ -72,6 +72,10 @@ phases:
           # Generate session profiles
           chmod +x $DEFAULT_PATH/aws-aft-core-framework/sources/scripts/creds.sh
           $DEFAULT_PATH/aws-aft-core-framework/sources/scripts/creds.sh
+          GITHUB_CREDS=$(aws secretsmanager get-secret-value --secret-id /aft/config/github/tf-modules-pat --query SecretString --output text)
+          GITHUB_USER=$(echo $GITHUB_CREDS | jq -r .username)
+          GITHUB_PAT=$(echo $GITHUB_CREDS | jq -r .pat)
+          git config --global url."https://${GITHUB_USER}:${GITHUB_PAT}@github.com".insteadOf "https://github.com"
         fi
 
 
