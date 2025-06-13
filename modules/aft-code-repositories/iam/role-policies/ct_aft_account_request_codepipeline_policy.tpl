@@ -2,13 +2,6 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Effect": "Allow",
-      "Resource": ["*"],
-      "Action": [
-        "codeconnections:GetConnectionToken"
-      ]
-    },
-    {
       "Effect":"Allow",
       "Action": [
         "s3:GetObject",
@@ -60,6 +53,13 @@
           "codeconnections:UseConnection"
         ],
         "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Resource": ["*"],
+      "Action": [
+        "codeconnections:GetConnectionToken"
+      ]
     }
   ]
 }

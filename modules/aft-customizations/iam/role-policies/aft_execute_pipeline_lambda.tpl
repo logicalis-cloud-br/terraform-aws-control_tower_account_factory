@@ -2,13 +2,6 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-          "Effect": "Allow",
-          "Resource": ["*"],
-          "Action": [
-            "codeconnections:GetConnectionToken"
-          ]
-        },
-        {
             "Effect": "Allow",
             "Action": [
                 "codepipeline:StartPipelineExecution",
@@ -46,6 +39,13 @@
         "Resource" : [
             "${aft_sns_topic_arn}",
             "${aft_failure_sns_topic_arn}"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Resource": ["*"],
+        "Action": [
+          "codeconnections:GetConnectionToken"
         ]
       }
     ]

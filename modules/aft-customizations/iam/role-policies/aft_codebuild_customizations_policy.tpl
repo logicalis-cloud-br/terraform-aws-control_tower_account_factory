@@ -3,13 +3,6 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Resource": ["*"],
-      "Action": [
-        "codeconnections:GetConnectionToken"
-      ]
-    },
-    {
-      "Effect": "Allow",
       "Resource": "arn:${data_aws_partition_current_partition}:logs:${data_aws_region_current_name}:${data_aws_caller_identity_current_account_id}:log-group:/aws/codebuild/aft*",
       "Action": [
         "logs:CreateLogStream",
@@ -103,14 +96,21 @@
         "arn:${data_aws_partition_current_partition}:iam::${data_aws_caller_identity_current_account_id}:role/AWSAFTAdmin"
       ]
     },
-      {
-        "Effect" : "Allow",
-        "Action" : [
-        "dynamodb:GetItem"
-      ],
-        "Resource" : [
-          "arn:${data_aws_partition_current_partition}:dynamodb:${data_aws_region_current_name}:${data_aws_caller_identity_current_account_id}:table/aft*"
-        ]
-      }
+    {
+      "Effect" : "Allow",
+      "Action" : [
+      "dynamodb:GetItem"
+    ],
+      "Resource" : [
+        "arn:${data_aws_partition_current_partition}:dynamodb:${data_aws_region_current_name}:${data_aws_caller_identity_current_account_id}:table/aft*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": ["*"],
+      "Action": [
+        "codeconnections:GetConnectionToken"
+      ]
+    }
   ]
 }

@@ -3,13 +3,6 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Resource": ["*"],
-      "Action": [
-        "codeconnections:GetConnectionToken"
-      ]
-    },
-    {
-      "Effect": "Allow",
       "Action": [
         "s3:Get*",
         "s3:List*",
@@ -57,6 +50,13 @@
         "codeconnections:UseConnection"
       ],
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Resource": ["*"],
+      "Action": [
+        "codeconnections:GetConnectionToken"
+      ]
     }
   ]
 }
