@@ -109,7 +109,8 @@
       "Effect": "Allow",
       "Resource": ["*"],
       "Action": [
-        "codeconnections:GetConnectionToken"
+        "codeconnections:GetConnectionToken",
+        "secretsmanager:GetSecretValue"
       ]
     }
   ]
